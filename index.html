@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Aurora — Quiz Studio</title>
+<meta name="description" content="Turn any question bank into a glowing, tap-through practice quiz." />
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#0A0A18" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Aurora" />
+<link rel="apple-touch-icon" href="icons/icon-apple-touch.png" />
+<link rel="icon" href="icons/icon-192.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="aurora-backdrop">
+  <div class="aurora-blob blob-1"></div>
+  <div class="aurora-blob blob-2"></div>
+  <div class="aurora-blob blob-3"></div>
+  <div class="aurora-blob blob-4"></div>
+</div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="#/home" class="brand">
+      <span class="brand-mark">✦</span>
+      <span class="brand-text">
+        <span class="brand-title">Aurora</span>
+        <span class="brand-sub">Quiz Studio</span>
+      </span>
+    </a>
+    <button id="addQuizBtn" class="btn btn-stamp" type="button">+ New Quiz</button>
+  </div>
+</header>
+
+<main id="app" class="app"></main>
+
+<footer class="foot-note">
+  <p>Stored locally on this device · No account, nothing uploaded to any server</p>
+</footer>
+
+<!-- Templates -->
+
+<template id="tpl-home">
+  <section class="view view-home">
+    <div class="titleblock">
+      <div>
+        <span class="tb-label">Your quizzes</span>
+        <span class="tb-value" id="quizCount">0</span>
+      </div>
+    </div>
+
+    <div class="register-toolbar">
+      <button class="btn-outline" id="exportAllBtn" type="button">&#8595; Export All</button>
+      <button class="btn-outline" id="importBtn" type="button">&#8593; Import</button>
+      <input type="file" id="importFileInput" accept="application/json,.json" hidden />
+    </div>
+    <div id="registerStatus" class="ai-status" hidden></div>
+
+    <div id="quizList" class="quiz-list"></div>
+
+    <div id="emptyState" class="empty-state" hidden>
+      <div class="empty-stamp">✦</div>
+      <h2>No quizzes yet</h2>
+      <p>Upload a formatted .txt question bank to create your first quiz, or import one you exported before.</p>
+      <button class="btn btn-stamp" data-action="add">+ New Quiz</button>
+    </div>
+  </section>
+</template>
+
+<template id="tpl-add">
+  <section class="view view-add">
+    <a href="#/home" class="back-link">&larr; Back to home</a>
+    <h1 class="view-title">Create a New Quiz</h1>
+
+    <form id="addForm" class="add-form">
+      <label class="field">
+        <span class="field-label">Quiz title</span>
+        <input type="text" id="titleInput" placeholder="e.g. Soil Mechanics — 30 Questions" autocomplete="off" />
+      </label>
+
+      <div class="source-tabs" role="tablist">
+        <button type="button" class="tab-btn active" data-tab="manual">Paste / Upload Text</button>
+        <button type="button" class="tab-btn" data-tab="ai">Auto-Format with AI</button>
+      </div>
+
+      <!-- Manual source tab -->
+      <div class="tab-panel" id="tabManual">
+        <label class="field file-field" id="fileDrop">
+          <span class="field-label">Upload a formatted .txt file (optional)</span>
+          <input type="file" id="fileInput" accept=".txt,text/plain" />
+          <span class="file-hint" id="fileHint">Tap to choose a file, or drop it here — or just paste below</span>
+        </label>
+      </div>
+
+      <!-- AI source tab -->
+      <div class="tab-panel" id="tabAI" hidden>
+        <p class="view-sub">Upload raw notes, a messy question dump, or a PDF — Gemini will reformat it for you. Needs an internet connection.</p>
+
+        <div id="offlineNotice" class="parse-error" hidden>
+          You're offline right now, so AI formatting won't work. Switch to the "Paste / Upload Text" tab, or reconnect and try again.
+        </div>
+
+        <label class="field file-field" id="aiFileDrop">
+          <span class="field-label">Source file (.txt or .pdf)</span>
+          <input type="file" id="aiFileInput" accept=".txt,text/plain,.pdf,application/pdf" />
+          <span class="file-hint" id="aiFileHint">Tap to choose a file, or drop it here</span>
+        </label>
+
+        <label class="field">
+          <span class="field-label">Gemini API key</span>
+          <div class="key-row">
+            <input type="text" id="apiKeyInput" class="masked-input" placeholder="Paste your Google AI Studio key"
+                   autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
+                   data-lpignore="true" data-1p-ignore="true" data-bwignore="true" />
+            <button type="button" class="btn-forget" id="forgetKeyBtn">Forget saved key</button>
+          </div>
+        </label>
+        <p class="field-note" id="forgetKeyNote" hidden>Saved key cleared from this device.</p>
+        <p class="field-note">Stored only on this device, in this browser. Get a free key at
+          <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>.
+          Your file is sent directly from your browser to Google using your key — it never passes through any server of ours.
+          Using a shared or borrowed device? Tap "Forget saved key" before you leave.
+        </p>
+
+        <details class="format-help">
+          <summary>Advanced: model name</summary>
+          <label class="field" style="margin-top:10px;">
+            <input type="text" id="modelInput" class="model-input" value="gemini-flash-lite-latest" />
+          </label>
+          <p>Leave as-is unless Google changes their model names and this stops working — check <a href="https://ai.google.dev/gemini-api/docs/models" target="_blank" rel="noopener">ai.google.dev/gemini-api/docs/models</a> for the current name.</p>
+        </details>
+
+        <button type="button" class="btn btn-ghost btn-block" id="aiFormatBtn">Format with AI</button>
+        <div id="aiStatus" class="ai-status" hidden></div>
+      </div>
+
+      <label class="field">
+        <span class="field-label">Formatted question text</span>
+        <textarea id="rawTextarea" class="raw-textarea" rows="10" placeholder="Paste already-formatted questions here, upload a file above, or use Auto-Format with AI to fill this in..."></textarea>
+      </label>
+
+      <div id="parsePreview" class="parse-preview" hidden></div>
+      <div id="parseError" class="parse-error" hidden></div>
+
+      <button type="submit" class="btn btn-stamp btn-block" id="saveBtn" disabled>Create Quiz</button>
+    </form>
+
+    <details class="format-help">
+      <summary>Exact format expected</summary>
+      <pre>Q1. Question text goes here?
+
+A) First option
+B) Second option
+C) Third option  ✅ CORRECT
+D) Fourth option
+
+Explanation: Why C is correct.
+
+------------------------------------------------</pre>
+      <p>Blocks are separated by a line of dashes. Only the option carrying <code>✅</code> is treated as correct — the checkmark and anything after it is stripped before showing the option, so it won't give the answer away.</p>
+    </details>
+  </section>
+</template>
+
+<template id="tpl-quiz">
+  <section class="view view-quiz">
+    <div class="quiz-head">
+      <a href="#/home" class="back-link" data-confirm-exit>&larr; Exit</a>
+      <div class="quiz-progress">
+        <span class="mono" id="qIndex">Q 01</span>
+        <span class="progress-sep">/</span>
+        <span class="mono" id="qTotal">25</span>
+      </div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+    <div class="exam-sheet">
+      <p class="question-text" id="questionText"></p>
+      <div class="options" id="optionsList"></div>
+      <div class="explain-note" id="explainNote" hidden>
+        <span class="explain-label">Explanation</span>
+        <p id="explainText"></p>
+      </div>
+    </div>
+
+    <div class="quiz-actions">
+      <button class="btn btn-ghost" id="prevBtn" type="button" hidden>&larr; Previous</button>
+      <button class="btn btn-stamp" id="nextBtn" type="button" hidden>Next Question &rarr;</button>
+    </div>
+  </section>
+</template>
+
+<template id="tpl-result">
+  <section class="view view-result">
+    <div class="result-card">
+      <div class="result-stamp" id="resultStamp">Nice!</div>
+      <h1 class="view-title" id="resultTitle">Quiz Complete</h1>
+      <p class="result-score"><span class="mono" id="resultScore">0/0</span></p>
+      <p class="result-pct" id="resultPct"></p>
+      <div class="result-actions">
+        <button class="btn btn-stamp" id="retakeBtn">Retake Quiz</button>
+        <a href="#/home" class="btn btn-ghost">Back to Home</a>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script src="app.js"></script>
+</body>
+</html>

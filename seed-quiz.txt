@@ -1,0 +1,284 @@
+CONSTRUCTION MATERIALS & CONCRETE TECHNOLOGY
+25 MCQ Questions with Answers and Explanations
+Syllabus: Technical Supervisor Exam
+================================================
+
+Q1. Water-cement ratio in concrete primarily affects which TWO properties simultaneously — but in opposing directions?
+
+A) Workability and durability
+B) Compressive strength and setting time
+C) Workability and strength  ✅ CORRECT
+D) Shrinkage and heat of hydration
+
+Explanation: Increasing w/c ratio improves workability but reduces compressive strength — they move in opposite directions. This is the classic trade-off in mix design.
+
+------------------------------------------------
+
+Q2. A concrete mix design yields M25 grade. If the cement content is increased by 20% while keeping all other parameters constant, what is the MOST likely outcome?
+
+A) Compressive strength increases to M30
+B) Workability decreases
+C) Shrinkage and cracking tendency increases  ✅ CORRECT
+D) Water-cement ratio remains the same
+
+Explanation: More cement with same water content means more heat of hydration and higher paste volume — leading to greater shrinkage and cracking risk. Strength may marginally improve but thermal cracking can offset it.
+
+------------------------------------------------
+
+Q3. Which chemical admixture, when overdosed, can act as a retarder instead of its intended purpose?
+
+A) Fly ash
+B) Superplasticizer (PCE-based)  ✅ CORRECT
+C) Accelerating admixture
+D) Air-entraining agent
+
+Explanation: PCE-based superplasticizers, when overdosed, can cause excessive retardation of setting — a well-known trap in construction practice.
+
+------------------------------------------------
+
+Q4. IS 383 classifies aggregates into Zone I to Zone IV based on grading. Which zone aggregate, if used in excess, causes the highest water demand in a concrete mix?
+
+A) Zone I (coarser)
+B) Zone II
+C) Zone III
+D) Zone IV (finer)  ✅ CORRECT
+
+Explanation: Zone IV (finest grading) has the highest surface area, demanding more water for the same workability. This is a common trap — students often confuse 'fine aggregate zone' with 'fine aggregate size'.
+
+------------------------------------------------
+
+Q5. Ordinary Portland Cement (OPC 53 grade) achieves its 28-day strength faster than OPC 33 grade primarily because of:
+
+A) Higher C3S content and finer grinding  ✅ CORRECT
+B) Higher C2S content
+C) Lower C3A content
+D) Addition of gypsum in higher proportion
+
+Explanation: C3S (alite) hydrates rapidly and contributes to early and 28-day strength. Finer grinding increases surface area accelerating hydration. OPC 53 has higher C3S and is ground finer.
+
+------------------------------------------------
+
+Q6. In a concrete mix, silica fume is added. Which of the following statements is INCORRECT about its effect?
+
+A) It fills the voids between cement particles (micro-filler effect)
+B) It reacts with Ca(OH)₂ released during hydration
+C) It increases workability of fresh concrete  ✅ CORRECT (this is the INCORRECT statement)
+D) It reduces permeability significantly
+
+Explanation: Silica fume drastically reduces workability due to its extremely fine particle size and high surface area. Superplasticizers must always be used alongside it — a common trick question.
+
+------------------------------------------------
+
+Q7. Alkali-Silica Reaction (ASR) in concrete causes expansion and cracking. Which condition is NOT necessary for ASR to occur?
+
+A) Presence of reactive silica in aggregates
+B) Availability of moisture
+C) High ambient temperature above 40°C  ✅ CORRECT (NOT necessary)
+D) Sufficient alkali content in cement
+
+Explanation: ASR requires reactive silica + alkali + moisture. Temperature accelerates it but is NOT a necessary condition — ASR can occur at normal temperatures. This is a classic trap.
+
+------------------------------------------------
+
+Q8. The slump test measures workability of concrete. A mix shows a 'shear slump' instead of a 'true slump'. This indicates:
+
+A) Concrete is too wet and segregation has occurred
+B) Concrete lacks cohesiveness and is prone to segregation  ✅ CORRECT
+C) Concrete is too dry for the slump test
+D) The test is invalid and must be repeated with a flow table
+
+Explanation: Shear slump (where one side slides off) indicates lack of cohesion in the mix, suggesting potential segregation issues. It doesn't necessarily mean the concrete is too wet.
+
+------------------------------------------------
+
+Q9. Which type of Portland cement should be AVOIDED in marine construction exposed to seawater?
+
+A) Portland Pozzolana Cement (PPC)
+B) Rapid Hardening Cement (RHC)  ✅ CORRECT
+C) Sulphate Resistant Cement (SRC)
+D) Low Heat Cement (LHC)
+
+Explanation: RHC has high C3A content and is ground finer — both increase vulnerability to sulfate and chloride attack. SRC and PPC are preferred for marine environments. RHC is a trap here.
+
+------------------------------------------------
+
+Q10. Gypsum is added to clinker during cement manufacture. What happens if gypsum content exceeds the optimum amount?
+
+A) Flash set occurs
+B) False set occurs  ✅ CORRECT
+C) Strength increases significantly
+D) Setting time is unaffected but heat of hydration increases
+
+Explanation: Excess gypsum causes 'false set' (premature stiffening that can be broken by re-mixing) — NOT flash set (which is due to insufficient gypsum). This distinction is frequently confused.
+
+------------------------------------------------
+
+Q11. In Hot Weather Concreting (above 40°C ambient), which measure is LEAST effective in controlling the temperature of fresh concrete?
+
+A) Using chilled water or ice flakes
+B) Cooling aggregates by sprinkling water
+C) Using white-painted transit mixers
+D) Using Rapid Hardening Cement instead of OPC  ✅ CORRECT (LEAST effective / counterproductive)
+
+Explanation: Using RHC in hot weather is counterproductive — it generates MORE heat of hydration and accelerates setting. The other measures directly cool ingredients or reduce heat gain.
+
+------------------------------------------------
+
+Q12. Steel reinforcement bars in concrete derive their bond strength from which mechanism PRIMARILY in deformed (HYSD) bars?
+
+A) Adhesion between steel and cement paste
+B) Friction at the interface
+C) Mechanical interlocking due to ribs/lugs  ✅ CORRECT
+D) Chemical bond between Fe₂O₃ and Ca(OH)₂
+
+Explanation: In HYSD bars, mechanical interlocking (bearing of ribs against concrete) dominates. Plain bars rely more on adhesion and friction. This is often confused in exam questions.
+
+------------------------------------------------
+
+Q13. Fly ash (Class F) used as a partial cement replacement in concrete primarily improves long-term strength through:
+
+A) Its hydraulic properties activating immediately upon mixing
+B) Pozzolanic reaction with Ca(OH)₂ over weeks/months  ✅ CORRECT
+C) Reduction in water-cement ratio directly
+D) Increasing the C3S content of the binder
+
+Explanation: Class F fly ash is pozzolanic — it reacts with Ca(OH)₂ (lime) released during cement hydration. This reaction is slow, which is why fly ash concrete gains strength gradually over time.
+
+------------------------------------------------
+
+Q14. Bulking of sand is maximum at approximately what moisture content?
+
+A) 0% (bone dry)
+B) 4–6% moisture  ✅ CORRECT
+C) 10–12% moisture
+D) At saturated surface dry (SSD) condition
+
+Explanation: Bulking peaks at approximately 4–6% moisture content. At SSD and higher moisture, surface tension effects collapse and bulking reduces. Completely dry sand also shows no bulking.
+
+------------------------------------------------
+
+Q15. Rebound hammer test on concrete gives the 'rebound number' (R). Which factor does NOT affect the rebound number significantly?
+
+A) Carbonation of the concrete surface
+B) Angle of inclination of the hammer
+C) Type of aggregate used in concrete  ✅ CORRECT (least significant)
+D) Age of concrete at time of testing
+
+Explanation: While aggregate type has some minor influence, it's not a primary significant factor. Surface carbonation (which hardens the surface), angle (which changes gravity effect), and age are well-known significant influencers.
+
+------------------------------------------------
+
+Q16. Under the Limit State Method (LSM) for RCC design, the partial safety factor for concrete strength (γc) is taken as 1.5. This factor accounts for:
+
+A) Uncertainty in loading patterns only
+B) Difference between lab cube strength and actual in-situ strength  ✅ CORRECT
+C) Corrosion of reinforcement over time
+D) Thermal expansion effects
+
+Explanation: γc = 1.5 accounts for the fact that concrete strength in actual structures is lower than cube strength due to different curing, compaction, and placement conditions.
+
+------------------------------------------------
+
+Q17. Among natural construction materials, which one undergoes 'seasoning' before use, and why?
+
+A) Stone — to remove quarry sap and residual moisture
+B) Timber — to remove sap and reduce moisture content  ✅ CORRECT
+C) Sand — to remove silt and clay particles
+D) Brick — to remove excess calcium compounds
+
+Explanation: Timber is seasoned to reduce its moisture content (from green ~100% to below 20%), preventing warping, shrinkage, and fungal attack. 'Quarry sap' removal is relevant to stone but 'seasoning' specifically refers to timber.
+
+------------------------------------------------
+
+Q18. Self-Compacting Concrete (SCC) is tested using the L-box test. What does a blocking ratio (H2/H1) of less than 0.8 indicate?
+
+A) Excellent passing ability — concrete flows freely
+B) Inadequate passing ability — risk of blocking around reinforcement  ✅ CORRECT
+C) Excessive segregation of aggregates
+D) Too high a viscosity requiring more superplasticizer
+
+Explanation: H2/H1 < 0.8 indicates that concrete did not flow freely through the reinforcing bars — it is blocking. The target is H2/H1 ≥ 0.8 for adequate passing ability.
+
+------------------------------------------------
+
+Q19. Efflorescence on brick masonry is caused by:
+
+A) Carbonation of lime in mortar by CO₂
+B) Soluble salts in bricks or mortar crystallizing on the surface as water evaporates  ✅ CORRECT
+C) Organic growth (algae/fungi) on the surface
+D) Expansion of bricks due to moisture absorption
+
+Explanation: Efflorescence is the white crystalline deposit formed when soluble salts (sulfates, chlorides) migrate to the surface with water and crystallize upon evaporation. It is NOT biological growth.
+
+------------------------------------------------
+
+Q20. In concrete mix design as per IS 10262, the target mean strength (f'ck) is higher than the characteristic strength (fck). For M30 concrete with a standard deviation of 5 N/mm², what is the target mean strength?
+
+A) 30 N/mm²
+B) 36.5 N/mm²
+C) 38.25 N/mm²  ✅ CORRECT
+D) 41.5 N/mm²
+
+Explanation: Target mean strength f'ck = fck + 1.65σ = 30 + 1.65×5 = 30 + 8.25 = 38.25 N/mm². The factor 1.65 corresponds to 5% defective (IS 10262). A common trap is using the wrong multiplier.
+
+------------------------------------------------
+
+Q21. Which statement about Lightweight Aggregate Concrete is CORRECT?
+
+A) It always has lower compressive strength than normal concrete of the same grade
+B) Its thermal insulation is poorer than normal concrete
+C) Air-dry density is typically 800–2000 kg/m³ compared to normal concrete's ~2400 kg/m³  ✅ CORRECT
+D) It cannot be used for structural purposes under any IS code provisions
+
+Explanation: Lightweight aggregate concrete ranges from 800–2000 kg/m³. It CAN be structural (structural lightweight concrete). Its thermal insulation is BETTER (not poorer) than normal concrete.
+
+------------------------------------------------
+
+Q22. The initial setting time of OPC (as per IS 269) must be NOT LESS than 30 minutes. This minimum is specified to ensure:
+
+A) Concrete gains strength before formwork removal
+B) Sufficient time for transportation, placing, and compaction of concrete  ✅ CORRECT
+C) Prevention of flash set during hydration
+D) The cement can be properly stored without hardening
+
+Explanation: The minimum IST ensures the concrete remains workable long enough for all practical construction operations — mixing, transporting, placing, compacting, and finishing.
+
+------------------------------------------------
+
+Q23. In extreme cold weather concreting (below 5°C), which statement is MOST accurate?
+
+A) More water should be added to counteract slow hydration
+B) Concrete should be cured with cold water to slow heat loss
+C) Hydration nearly stops below 5°C, so concrete must be protected from freezing and kept warm  ✅ CORRECT
+D) Air-entraining agents are harmful and should be avoided in cold weather
+
+Explanation: Hydration slows dramatically and essentially stops below 5°C. Frozen water expands ~9%, damaging the concrete matrix. Protection (insulation, heated enclosures) is essential. Air-entrainment is actually BENEFICIAL in cold/freeze-thaw conditions.
+
+------------------------------------------------
+
+Q24. Specific gravity of cement is approximately 3.15. If a sample tests at 2.8, what does this MOST likely indicate?
+
+A) The cement is of higher quality
+B) The cement is adulterated or has absorbed moisture / undergone partial hydration  ✅ CORRECT
+C) Normal variation within IS tolerance limits
+D) The cement has higher fineness than standard
+
+Explanation: True specific gravity of OPC is 3.1–3.16. A value of 2.8 is significantly lower, indicating adulteration (addition of inerts like fly ash without declaration) or pre-hydration due to moisture. Lower SG ≠ better quality.
+
+------------------------------------------------
+
+Q25. Polymer Modified Concrete (PMC) uses latex or resins. Compared to ordinary concrete, PMC primarily excels in which property that makes it ideal for repair works?
+
+A) Higher compressive strength
+B) Better bond/adhesion to existing concrete substrate and improved tensile strength  ✅ CORRECT
+C) Lower cost of production
+D) Higher resistance to high temperatures
+
+Explanation: PMC's key advantage is superior bond to existing concrete substrates (critical for repair), along with improved flexural and tensile strength. It is NOT cheaper, and polymers degrade at high temperatures.
+
+================================================
+END OF QUESTION BANK
+Total Questions: 25
+Subject: Construction Materials & Concrete Technology
+Exam: Technical Supervisor Syllabus
+================================================
