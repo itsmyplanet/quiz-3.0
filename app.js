@@ -392,6 +392,7 @@ const AI_FORMAT_PROMPT = `You convert raw study material into a plain-text multi
 
 Format rules:
 - Each question starts on its own line as: Q1. <question text>  (increment the number for each question)
+- If a question includes multiple numbered or lettered sub-statements (e.g. a "consider the following statements" question with items 1., 2., 3.), put each sub-statement on its own line, with a real line break after each one — never merge them into a single run-on paragraph. See the second example below.
 - Below it, list options as lettered lines: A) B) C) D) ...  (2 or more options is fine)
 - Put a checkmark right after the text of the ONE correct option's line, like:
   C) Correct answer text  ✅ CORRECT
@@ -409,6 +410,23 @@ C) 110°C
 D) 120°C
 
 Explanation: At standard atmospheric pressure (1 atm), water boils at 100°C.
+
+------------------------------------------------
+
+Example of a question with multiple sub-statements (notice each stays on its own line):
+
+Q2. Consider the following statements about photosynthesis:
+1. It occurs only in the presence of sunlight.
+2. It produces oxygen as a byproduct.
+3. It takes place exclusively in the roots of a plant.
+Which of the statements given above is/are correct?
+
+A) 1 and 2 only  ✅ CORRECT
+B) 2 and 3 only
+C) 1 and 3 only
+D) All of the above
+
+Explanation: Statement 3 is false — photosynthesis occurs in chloroplasts, mainly in leaves, not roots.
 
 ------------------------------------------------
 
