@@ -390,6 +390,11 @@ function saveSettings(patch) {
 /* ---------- Gemini AI formatting ---------- */
 const AI_FORMAT_PROMPT = `You convert raw study material into a plain-text multiple-choice question bank using this EXACT format. Output ONLY the formatted questions — no preamble, no markdown code fences, no commentary before or after.
 
+Accuracy rules — these matter more than anything else below:
+- If the source already contains the question and options worded out, copy that wording as closely as possible. Do not paraphrase, shorten, reorder, or rewrite phrasing that already exists in the source — only add formatting (numbering, lettering, line breaks, the ✅ marker, and an Explanation line).
+- If the source states which option is correct — anywhere, including in a separate answer key, an answer table at the end of the document, bolded/starred text, or footnotes — that stated answer is the ONLY source of truth for which option gets the ✅ marker. Do not independently judge which answer seems right if the source already tells you. Take extra care matching each question's number to its corresponding entry in a separate answer key — this is the single most common place mistakes happen, so double-check each match before finalizing.
+- Only decide the correct answer yourself when the source truly does not provide one anywhere (e.g. you were asked to generate new questions from plain reference material). In that case, only include a question if you are highly confident in the correct answer based on well-established facts — skip anything you're unsure about rather than guessing.
+
 Format rules:
 - Each question starts on its own line as: Q1. <question text>  (increment the number for each question)
 - If a question includes multiple numbered or lettered sub-statements (e.g. a "consider the following statements" question with items 1., 2., 3.), put each sub-statement on its own line, with a real line break after each one — never merge them into a single run-on paragraph. See the second example below.
@@ -430,7 +435,7 @@ Explanation: Statement 3 is false — photosynthesis occurs in chloroplasts, mai
 
 ------------------------------------------------
 
-Now read the source material provided below (as text, or as an attached PDF) and produce as many well-formed multiple-choice questions as it reasonably supports, following the exact format above. If the source already contains explicit questions and answers, preserve their meaning faithfully rather than inventing new ones. If it's general reference material without explicit Q&A, generate sensible questions from it. Keep the original language of the source material.`;
+Now read the source material provided below (as text, or as an attached PDF) and produce as many well-formed multiple-choice questions as it reasonably supports, following the exact format and accuracy rules above. Keep the original language of the source material.`;
 
 function fileToBase64(file) {
   return new Promise((resolve, reject) => {
@@ -668,7 +673,7 @@ function renderAdd() {
       rawTextarea.value = formatted;
       updatePreview();
       if (parsedQuestions && parsedQuestions.length) {
-        setAiStatus(`Done — parsed ${parsedQuestions.length} question${parsedQuestions.length === 1 ? "" : "s"}. Review below, then save.`, "success");
+        setAiStatus(`Done — parsed ${parsedQuestions.length} question${parsedQuestions.length === 1 ? "" : "s"}. Double-check the correct answers and wording against your source before saving — AI can occasionally mismatch or misword a question.`, "success");
         if (!titleInput.value.trim()) {
           titleInput.value = aiFile.name.replace(/\.(txt|pdf)$/i, "").replace(/[_-]+/g, " ").trim();
         }
