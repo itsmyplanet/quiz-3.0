@@ -203,12 +203,20 @@ async function seedIfEmpty() {
 const app = document.getElementById("app");
 
 function router() {
+  cleanupQuestionNav();
   const hash = location.hash || "#/home";
 
   if (hash.startsWith("#/quiz/")) return renderQuiz(hash.slice("#/quiz/".length));
   if (hash.startsWith("#/result/")) return renderResult(hash.slice("#/result/".length));
   if (hash === "#/add") return renderAdd();
   return renderHome();
+}
+
+function cleanupQuestionNav() {
+  const overlay = document.getElementById("qnavOverlay");
+  const drawer = document.getElementById("qnavDrawer");
+  if (overlay) overlay.remove();
+  if (drawer) drawer.remove();
 }
 
 window.addEventListener("hashchange", router);
@@ -711,6 +719,16 @@ function renderQuiz(id) {
   const tpl = document.getElementById("tpl-quiz");
   app.innerHTML = "";
   app.appendChild(tpl.content.cloneNode(true));
+
+  // Move the fixed-position drawer/overlay out from under .view: a CSS
+  // transform on an ancestor (like .view's entrance animation) turns that
+  // ancestor into the containing block for position:fixed descendants,
+  // which briefly mispositions them until the animation finishes.
+  // Parenting them directly to <body> avoids that entirely.
+  const qnavOverlayEl = document.getElementById("qnavOverlay");
+  const qnavDrawerEl = document.getElementById("qnavDrawer");
+  if (qnavOverlayEl) document.body.appendChild(qnavOverlayEl);
+  if (qnavDrawerEl) document.body.appendChild(qnavDrawerEl);
 
   document.querySelector("[data-confirm-exit]").addEventListener("click", e => {
     const hasUnfinishedProgress = quizState.answers.some(a => a) && quizState.answers.some(a => !a);
