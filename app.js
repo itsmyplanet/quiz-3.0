@@ -715,13 +715,53 @@ function renderQuiz(id) {
   document.querySelector("[data-confirm-exit]").addEventListener("click", e => {
     const hasUnfinishedProgress = quizState.answers.some(a => a) && quizState.answers.some(a => !a);
     if (hasUnfinishedProgress) {
-      if (!confirm("Exit this inspection? Your progress on this attempt won't be saved.")) {
+      if (!confirm("Exit this quiz? Your progress on this attempt won't be saved.")) {
         e.preventDefault();
       }
     }
   });
 
+  wireQuestionNav();
   renderQuestion();
+}
+
+function wireQuestionNav() {
+  const toggleBtn = document.getElementById("navToggleBtn");
+  const closeBtn = document.getElementById("qnavCloseBtn");
+  const overlay = document.getElementById("qnavOverlay");
+  const drawer = document.getElementById("qnavDrawer");
+
+  const open = () => { overlay.classList.add("show"); drawer.classList.add("open"); };
+  const close = () => { overlay.classList.remove("show"); drawer.classList.remove("open"); };
+
+  toggleBtn.addEventListener("click", open);
+  closeBtn.addEventListener("click", close);
+  overlay.addEventListener("click", close);
+
+  renderQuestionNav();
+}
+
+function renderQuestionNav() {
+  const grid = document.getElementById("qnavGrid");
+  if (!grid) return;
+  grid.innerHTML = "";
+
+  quizState.quiz.questions.forEach((_, i) => {
+    const answer = quizState.answers[i];
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "qnav-item";
+    if (answer) btn.classList.add(answer.correct ? "correct" : "incorrect");
+    if (i === quizState.index) btn.classList.add("current");
+    btn.textContent = String(i + 1);
+    btn.addEventListener("click", () => {
+      quizState.index = i;
+      document.getElementById("qnavOverlay").classList.remove("show");
+      document.getElementById("qnavDrawer").classList.remove("open");
+      renderQuestion();
+    });
+    grid.appendChild(btn);
+  });
 }
 
 function renderQuestion() {
@@ -763,12 +803,15 @@ function renderQuestion() {
   } else {
     nextBtn.hidden = true;
   }
+
+  renderQuestionNav();
 }
 
 function selectOption(selected, q) {
   if (quizState.answers[quizState.index]) return;
   quizState.answers[quizState.index] = { selectedLabel: selected.label, correct: !!selected.correct };
   showAnswerState(q, selected.label);
+  renderQuestionNav();
 }
 
 function showAnswerState(q, selectedLabel) {
